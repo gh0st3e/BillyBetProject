@@ -2,22 +2,25 @@ package config
 
 import (
 	"fmt"
+	"net"
+
 	"github.com/gh0st3e/BillyBetProject/internal/util"
 	"github.com/kelseyhightower/envconfig"
 	"github.com/pkg/errors"
-	"net"
 )
 
 type Config struct {
 	Database Database
 	Server   Server
 }
+
 type Database struct {
 	Host    string `required:"true" split_word:"true"`
 	Port    string `required:"true" split_words:"true"`
 	Name    string `required:"true" split_words:"true"`
 	Address string `required:"false"`
 }
+
 type Server struct {
 	Host    string `required:"true" split_word:"true"`
 	Port    string `required:"true" split_words:"true"`
@@ -39,6 +42,7 @@ func Init() (*Config, error) {
 
 	return &cfg, nil
 }
+
 func initDB(cfg *Config) error {
 	err := envconfig.Process(util.Database, &cfg.Database)
 	if err != nil {
@@ -49,6 +53,7 @@ func initDB(cfg *Config) error {
 
 	return nil
 }
+
 func initServer(cfg *Config) error {
 	err := envconfig.Process(util.Server, &cfg.Server)
 	if err != nil {
