@@ -75,7 +75,7 @@ func main() {
 	repos := repository.NewRepositories(db)
 	//TODO Change arguments!!!
 	//AddCash(repos)
-	//GetCash(repos)
+	// GetCash(repos)
 	//SubCash(repos)
 	//AddUser(repos)
 	//GetUser(repos)
