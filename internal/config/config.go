@@ -2,22 +2,25 @@ package config
 
 import (
 	"fmt"
+	"net"
+
 	"github.com/gh0st3e/BillyBetProject/internal/util"
 	"github.com/kelseyhightower/envconfig"
 	"github.com/pkg/errors"
-	"net"
 )
 
 type Config struct {
 	Database Database
 	Server   Server
 }
+
 type Database struct {
 	Host    string `required:"true" split_word:"true"`
 	Port    string `required:"true" split_words:"true"`
 	Name    string `required:"true" split_words:"true"`
 	Address string `required:"false"`
 }
+
 type Server struct {
 	Host    string `required:"true" split_word:"true"`
 	Port    string `required:"true" split_words:"true"`

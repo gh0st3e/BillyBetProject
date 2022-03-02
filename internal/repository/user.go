@@ -3,6 +3,7 @@ package repository
 import (
 	"database/sql"
 	"fmt"
+
 	"github.com/gh0st3e/BillyBetProject/internal/entity"
 	"github.com/gh0st3e/BillyBetProject/internal/util"
 	"github.com/pkg/errors"
@@ -13,8 +14,6 @@ var _ User = (*user)(nil) //Magic
 var query = map[string]string{
 	util.AddUser: "INSERT INTO user (`name`, `surname`, `cashid`, `ban`) VALUES ('%v','%v','%v','%v')",
 }
-
-//insert, err := db.Query(fmt.Sprintf("INSERT INTO `todo` (`id`,`todo`) VALUES ('%d','%s')", size+1, todo))
 
 type user struct {
 	db *sql.DB
@@ -33,9 +32,11 @@ func (u user) Add(user entity.User) error {
 	return rows.Err()
 
 }
+
 func (u user) Get(id int) (entity.User, error) {
 	return entity.User{}, nil
 }
+
 func (u user) Remove(id int) error {
 	return nil
 }

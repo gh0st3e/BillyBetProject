@@ -7,6 +7,3 @@ func FromBoolToInt(b bool) int {
 
 	return 0
 }
-func FromIntToBool(i int) bool {
-	return i >= 1
-}
