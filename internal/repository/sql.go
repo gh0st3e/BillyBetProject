@@ -3,6 +3,7 @@ package repository
 import (
 	"database/sql"
 	"fmt"
+
 	"github.com/gh0st3e/BillyBetProject/internal/config"
 	"github.com/gh0st3e/BillyBetProject/internal/util"
 	_ "github.com/go-sql-driver/mysql"
