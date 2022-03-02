@@ -12,4 +12,11 @@ const (
 
 const (
 	AddUser = "add_user"
+	GetUser = "get_user"
+	DelUser = "del_user"
+)
+const (
+	AddCash = "add_cash"
+	GetCash = "get_cash"
+	SubCash = "sub_cash"
 )
