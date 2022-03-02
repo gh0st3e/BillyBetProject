@@ -2,6 +2,7 @@ package repository
 
 import (
 	"database/sql"
+
 	"github.com/gh0st3e/BillyBetProject/internal/entity"
 )
 
@@ -11,15 +12,19 @@ type User interface {
 	Remove(id int) error
 }
 type Cash interface {
-	Add(rub int) (entity.Cash, error)
+	Add(cash entity.Cash) error
 	Get(id int) (entity.Cash, error)
-	Sub(rub int) (entity.Cash, error)
+	Sub(id, rub int) (entity.Cash, error)
 }
 
 type Repositories struct {
 	User User
+	Cash Cash
 }
 
 func NewRepositories(db *sql.DB) Repositories {
-	return Repositories{User: NewUser(db)}
+	return Repositories{
+		User: NewUser(db),
+		Cash: NewCash(db),
+	}
 }
