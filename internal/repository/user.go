@@ -12,7 +12,7 @@ import (
 var _ User = (*user)(nil) //Magic
 
 var query = map[string]string{
-	util.AddUser: "INSERT INTO user (`name`, `surname`, `cashid`, `ban`) VALUES ('%v','%v','%v','%v')",
+	util.AddUser: "UPDATE INTO user (`name`, `surname`, `cashid`, `ban`) VALUES ('%v','%v','%v','%v')",
 }
 
 type user struct {
