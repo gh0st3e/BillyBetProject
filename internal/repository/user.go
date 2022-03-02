@@ -36,12 +36,13 @@ func (u user) Add(user entity.User) error {
 }
 
 func (u user) Get(id int) (entity.User, error) {
+	var man entity.User
+
 	rows, err := u.db.Query(fmt.Sprintf(queryUser[util.GetUser], id))
 	if err != nil {
 		return entity.User{}, errors.Wrap(err, "repository.Get.Query couldn't find user")
 	}
-	fmt.Println("hello")
-	var man entity.User
+
 	for rows.Next() {
 		err := rows.Scan(&man.ID, &man.Name, &man.Surname, &man.CashID, &man.Ban)
 		if err != nil {
