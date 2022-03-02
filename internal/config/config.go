@@ -42,6 +42,7 @@ func Init() (*Config, error) {
 
 	return &cfg, nil
 }
+
 func initDB(cfg *Config) error {
 	err := envconfig.Process(util.Database, &cfg.Database)
 	if err != nil {
@@ -52,6 +53,7 @@ func initDB(cfg *Config) error {
 
 	return nil
 }
+
 func initServer(cfg *Config) error {
 	err := envconfig.Process(util.Server, &cfg.Server)
 	if err != nil {
